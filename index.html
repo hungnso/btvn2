@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+
+
+</body>
+<script src="./main.js"></script>
+<script>
+  const app = document.getElementById('app')
+  const title = document.createElement('h1')
+  const btnAddMore = document.createElement('div')
+  btnAddMore.classList.add('button')
+  const btn = document.createElement('button')
+  btn.classList.add('btn')
+  btn.innerHTML = "Add"
+  btnAddMore.appendChild(btn)
+  const inputs = []
+  title.innerHTML = `FAQ?`
+  const input = new fAQ('What kind of payment do yout support?', 'We support credit card, Paypal and Stripe')
+
+  app.appendChild(title)
+  app.appendChild(btnAddMore)
+
+  app.appendChild(input.render())
+
+
+
+  btnAddMore.addEventListener('click', () => {
+    let question = prompt('Hãy nhập câu hỏi?')
+    let answer = prompt('Hãy nhập câu trả lời')
+    const input = new fAQ(`${question}`, `${answer}`)
+    inputs.push(input)
+    app.appendChild(input.render())
+  })
+
+
+</script>
+
+</html>
